@@ -18,7 +18,7 @@ const BarDetails = () => {
   return (
     <div className={s.container}>
       <div className={s.back}>
-        <NavLink to="../BarMenu" className={s.btn}>
+        <NavLink to="/BarMenu/" className={s.btn}>
           Назад
         </NavLink>
       </div>
