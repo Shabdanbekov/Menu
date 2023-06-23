@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap");
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  color: bisque;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  width: 578px;
+  height: 100px;
+  margin: auto;
+}
+
+.background {
+  background-image: url("public/menu.png");
+  width: 578px;
+  height: 700px;
+  margin: auto;
+}
+
+.descriptions {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+  padding: 15px 10px;
+}
+
+.dots {
+  margin: 0 10px;
+  color: gray;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+.nav {
+  justify-content: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.navItem {
+  text-decoration: none;
+  font-size: 50px;
+  color: black;
+  font-family: "Rowdies", cursive;
+}

@@ -1,0 +1,32 @@
+.container {
+  width: 1000px;
+  height: 700px auto;
+  background-color: darkgray;
+  margin: auto;
+}
+
+.dishImage {
+  width: 400px;
+  height: 400px;
+  /* align-items: center;
+    display: flex;
+    justify-content: center; */
+}
+.btn {
+  text-decoration: none;
+  background-color: #ffe4c4;
+  border-radius: 8px;
+  color: black;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.back {
+  padding-top: 10px;
+  padding-left: 85%;
+}
