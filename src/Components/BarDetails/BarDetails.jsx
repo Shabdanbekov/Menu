@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import s from "../BarDetails/BarDetails.module.css";
 
 const BarDetails = () => {
   const [dishData, setDishData] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setDishData(location.state);
@@ -18,9 +19,9 @@ const BarDetails = () => {
   return (
     <div className={s.container}>
       <div className={s.back}>
-        <NavLink to="/BarMenu/" className={s.btn}>
+        <button onClick={() => navigate(-1)} className={s.btn}>
           Назад
-        </NavLink>
+        </button>
       </div>
       <h1>{dishData.name}</h1>
       <img

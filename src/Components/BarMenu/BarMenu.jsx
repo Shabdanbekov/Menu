@@ -35,7 +35,7 @@ const BarMenu = () => {
       </div>
       {barItems.map((item) => (
         <div key={item.id} className={s.descriptions}>
-          <NavLink state={item} to={`/dish/${item.id}`} className={s.dishLink}>
+          <NavLink state={item} to={`/bar/${item.id}`} className={s.dishLink}>
             <span>{item.name}</span>
           </NavLink>
           <span className={s.dots}>{".".repeat(30)}</span>
