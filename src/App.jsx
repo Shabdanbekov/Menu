@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainMenu from "./Components/MainMenu/MainMenu";
-import BarMenu from "./Components/barMenu/BarMenu";
+import BarMenu from "./Components/BarMenu/BarMenu";
 import DishMenu from "./Components/DishMenu/DishMenu";
 import DishDetails from "./Components/DishDetails/DishDetails";
 import BarDetails from "./Components/BarDetails/BarDetails";
