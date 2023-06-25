@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import s from "../FoodMenu/FoodMenu.module.css";
+import s from "./DishMenu.module.css";
 
-const FoodMenu = () => {
+const DishMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -46,4 +46,4 @@ const FoodMenu = () => {
   );
 };
 
-export default FoodMenu;
+export default DishMenu;

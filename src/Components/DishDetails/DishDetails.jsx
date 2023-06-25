@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import s from "../DishDetails/DishDetails.module.css";
 
 const DishDetails = () => {
   const [dishData, setDishData] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log(location.state);
     setDishData(location.state);
@@ -18,12 +20,12 @@ const DishDetails = () => {
   return (
     <div className={s.container}>
       <div className={s.back}>
-        <NavLink to={"/FoodMenu/"} className={s.btn}>
+        <button onClick={() => navigate(-1)} className={s.btn}>
           Назад
-        </NavLink>
+        </button>
       </div>
       <h1>{dishData.name}</h1>
-      <div style={{ display: "flex", color: "#ffe4c4", fontSize: "40px" }}>
+      <div className={s.composition}>
         <img
           src={dishData.images[0].image}
           alt={dishData.name}

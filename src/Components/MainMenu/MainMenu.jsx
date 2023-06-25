@@ -7,7 +7,7 @@ const MainMenu = () => {
     <div className={s.background}>
       <h1>SOULIST</h1>
       <div className={s.nav}>
-        <NavLink to={"/FoodMenu/"} className={s.navItem}>
+        <NavLink to={"/DishMenu/"} className={s.navItem}>
           КУХНЯ
         </NavLink>
         <NavLink to={"/BarMenu/"} className={s.navItem}>

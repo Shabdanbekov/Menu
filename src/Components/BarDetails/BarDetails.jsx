@@ -3,16 +3,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import s from "../BarDetails/BarDetails.module.css";
 
 const BarDetails = () => {
-  const [dishData, setDishData] = useState(null);
+  const [barData, setBarData] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setDishData(location.state);
+    setBarData(location.state);
     if (location.state.images) console.log(location.state.images);
   }, []);
 
-  if (!dishData) {
+  if (!barData) {
     return <div>Loading...</div>;
   }
 
@@ -23,13 +23,15 @@ const BarDetails = () => {
           Назад
         </button>
       </div>
-      <h1>{dishData.name}</h1>
-      <img
-        src={dishData.images[0].image}
-        alt={dishData.name}
-        className={s.dishImage}
-      />
-      <div className={s.description}></div>
+      <h1>{barData.name}</h1>
+      <div className={s.composition}>
+        <img
+          src={barData.images[0].image}
+          alt={barData.name}
+          className={s.dishImage}
+        />
+        <p>{barData.composition}</p>
+      </div>
     </div>
   );
 };
