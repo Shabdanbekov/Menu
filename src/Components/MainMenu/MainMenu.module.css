@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap");
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
 
 h1 {
   text-align: center;
@@ -6,11 +10,11 @@ h1 {
   color: bisque;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.container {
+/* .container {
   width: 578px;
   height: 100px;
   margin: auto;
-}
+} */
 
 .background {
   background-image: url("public/menu.png");
