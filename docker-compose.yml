@@ -1,14 +1,14 @@
 version: "3.4"
 services:
- vite_docker:
-   image: node:lts
-   container_name: docker_menu
-   entrypoint: /bin/sh
-   ports:
-     - 8000:8000
-   working_dir: /srv/app
-   volumes:
-     - type: bind
-       source: ./
-       target: /srv/app
-   tty: true
+  vite_docker:
+    image: node:lts
+    container_name: menu-front
+    ports:
+      - 8000:8000
+    working_dir: /srv/app
+    entrypoint: ["npm", "run", "dev"]
+    volumes:
+      - type: bind
+        source: ./
+        target: /srv/app
+    tty: true
