@@ -12,7 +12,7 @@ const BarMenu = () => {
         const response = await fetch("http://3.65.63.138/api/dish/");
         console.log(response);
         const data = await response.json();
-        setBarItems(data.filter((el) => el.category === 5));
+        setBarItems(data.filter((el) => el.category === 18));
         setLoading(false);
       } catch (error) {
         console.error(error);
