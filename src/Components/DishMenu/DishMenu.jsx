@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { MenuItem } from "../MenuItem";
 
-import arrowLeft from '../../assets/icons/Arrow_Circle_Left.svg'
-import arrowRight from '../../assets/icons/Arrow_Circle_Right.svg'
+import arrowLeft from "../../assets/icons/Arrow_Circle_Left.svg";
+import arrowRight from "../../assets/icons/Arrow_Circle_Right.svg";
 
-import styles from './DishMenu.module.css'
+import styles from "./DishMenu.module.css";
 import { getBackgroundColor } from "./utils.js";
 
 const DishMenu = () => {
@@ -14,48 +14,55 @@ const DishMenu = () => {
   const [page, setPage] = useState(0);
 
   const handleNextPage = () => {
-    if (page + 1 === menu.length) return
+    if (page + 1 === menu.length) return;
     setLeftPages((prev) => [...prev, page]);
-    setPage((prev) => prev + 1)
-  }
+    setPage((prev) => prev + 1);
+  };
 
   const handlePrevPage = () => {
-    if (page === 0) return
+    if (page === 0) return;
     setLeftPages((prev) => {
       const cache = [...prev];
       cache.pop();
       return cache;
-    })
-    setPage((prev) => prev - 1)
-  }
+    });
+    setPage((prev) => prev - 1);
+  };
 
   useEffect(() => {
     const fetchDataMenuDishes = async () => {
       try {
-        setLoading(true)
-        const dishesResponse = await fetch(`http://3.65.63.138:8080/api/menupositions/`);
-        const categoryResponse = await fetch(`http://3.65.63.138:8080/api/menuitems/`);
+        setLoading(true);
+        const dishesResponse = await fetch(
+          `http://3.65.63.138:8080/api/menupositions/`
+        );
+        const categoryResponse = await fetch(
+          `http://3.65.63.138:8080/api/menuitems/`
+        );
         const dishes = await dishesResponse.json();
         const categories = await categoryResponse.json();
 
-        const categoriesForDish = categories.filter((item) => item.category === 2);
+        const categoriesForDish = categories.filter(
+          (item) => item.category === 2
+        );
 
-        const formatDishes = categoriesForDish.map(item => {
-          const dishesOfCategory = dishes.filter(dish => dish.menu_item === item.id)
+        const formatDishes = categoriesForDish.map((item) => {
+          const dishesOfCategory = dishes.filter(
+            (dish) => dish.menu_item === item.id
+          );
 
-          return {...item, dishes: dishesOfCategory}
-        })
+          return { ...item, dishes: dishesOfCategory };
+        });
 
-        setMenu(formatDishes)
-        setLoading(false)
+        setMenu(formatDishes);
+        setLoading(false);
       } catch (e) {
-        console.log(e)
-        setLoading(false)
+        console.log(e);
+        setLoading(false);
       }
     };
 
     fetchDataMenuDishes();
-
   }, []);
 
   if (loading) {
@@ -78,10 +85,18 @@ const DishMenu = () => {
         />
       ))}
       {menu.length - 1 > page && (
-        <img className={styles.btn_next} onClick={handleNextPage} src={arrowRight} />
+        <img
+          className={styles.btn_next}
+          onClick={handleNextPage}
+          src={arrowRight}
+        />
       )}
       {page > 0 && (
-        <img className={styles.btn_prev} onClick={handlePrevPage} src={arrowLeft} />
+        <img
+          className={styles.btn_prev}
+          onClick={handlePrevPage}
+          src={arrowLeft}
+        />
       )}
     </div>
   );

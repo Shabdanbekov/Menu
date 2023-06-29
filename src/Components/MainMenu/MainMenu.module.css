@@ -17,7 +17,7 @@ h1 {
 } */
 
 .background {
-  background-image: url("public/menu.png");
+  background-image: url("/menu.png");
   width: 578px;
   height: 700px;
   margin: auto;
