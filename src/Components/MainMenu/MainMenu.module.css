@@ -1,49 +1,38 @@
-@media (max-width: 768px) {
-  .container {
-    width: 90%;
-  }
-}
-
-h1 {
-  text-align: center;
-  padding-top: 20px;
-  color: bisque;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-/* .container {
-  width: 578px;
-  height: 100px;
-  margin: auto;
-} */
-
-.background {
-  background-image: url("/menu.png");
-  width: 578px;
-  height: 700px;
-  margin: auto;
-}
-
-.descriptions {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 30px;
-  padding: 15px 10px;
-}
-
-.dots {
-  margin: 0 10px;
-  color: gray;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 30px;
-}
-.nav {
-  justify-content: end;
+.container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  height: 100vh;
 }
+
+.dish {
+  flex: 1;
+  background-image: url("/grill.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+}
+
+.bar {
+  flex: 1;
+  background-color: rgb(8, 8, 8);
+  background-image: url("/bar.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+}
+
 .navItem {
   text-decoration: none;
-  font-size: 50px;
-  color: black;
-  font-family: "Rowdies", cursive;
+  color: rgb(224, 7, 7);
+}
+
+.image {
+  width: 60px;
 }
