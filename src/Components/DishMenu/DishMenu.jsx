@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { MenuItem } from "../MenuItem";
-import { dishes } from './constants.js'
 
 import arrowLeft from '../../assets/icons/Arrow_Circle_Left.svg'
 import arrowRight from '../../assets/icons/Arrow_Circle_Right.svg'
@@ -33,23 +32,22 @@ const DishMenu = () => {
   useEffect(() => {
     const fetchDataMenuDishes = async () => {
       try {
-        // TODO: откоментировать когда бэк будет готов (его данные)
-        // setLoading(true)
-        // const dishesResponse = await fetch(`http://3.65.63.138:8080/api/menupositions/`);
-        // const categoryResponse = await fetch(`http://3.65.63.138:8080/api/menuitems/`);
-        // const dishes = await dishesResponse.json();
-        // const categories = await categoryResponse.json();
-        //
-        // const categoriesForDish = categories.filter((item) => item.menu === 2);
-        //
-        // const formatDishes = categoriesForDish.map(item => {
-        //   const dishesOfCategory = dishes.filter(dish => dish.category === item.id)
-        //
-        //   return {...item, dishes: dishesOfCategory}
-        // })
+        setLoading(true)
+        const dishesResponse = await fetch(`http://3.65.63.138:8080/api/menupositions/`);
+        const categoryResponse = await fetch(`http://3.65.63.138:8080/api/menuitems/`);
+        const dishes = await dishesResponse.json();
+        const categories = await categoryResponse.json();
 
-        setMenu(dishes)
-        // setLoading(false)
+        const categoriesForDish = categories.filter((item) => item.category === 2);
+
+        const formatDishes = categoriesForDish.map(item => {
+          const dishesOfCategory = dishes.filter(dish => dish.menu_item === item.id)
+
+          return {...item, dishes: dishesOfCategory}
+        })
+
+        setMenu(formatDishes)
+        setLoading(false)
       } catch (e) {
         console.log(e)
         setLoading(false)
@@ -71,7 +69,7 @@ const DishMenu = () => {
           key={index}
           id={item.id}
           zIndex={menu.length - index}
-          title={item.name}
+          title={item.title}
           bgImage={getBackgroundColor(index)}
           items={item.dishes}
           isLeft={leftPages.includes(index)}

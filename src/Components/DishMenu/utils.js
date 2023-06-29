@@ -11,5 +11,6 @@ import blueBg from '../../assets/backgrounds/blue-title-bg.png'
 export const getBackgroundColor = (num) => {
   const bgs = [greenBg, roseBg, redBg, violetBg, yellowBg, purpleBg, hotRedBg, blueBg];
 
+  if (!bgs[num]) return purpleBg;
   return bgs[num]
 }
