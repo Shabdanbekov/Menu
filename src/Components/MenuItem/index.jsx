@@ -1,22 +1,20 @@
-import React, {forwardRef} from 'react'
-import {NavLink} from "react-router-dom";
-import cn from 'classnames'
+import React, { forwardRef } from "react";
+import { NavLink } from "react-router-dom";
+import cn from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-import bg from '../../assets/backgrounds/bg.png'
+import bg from "../../assets/backgrounds/bg.png";
 
-import styles from './index.module.css'
+import styles from "./index.module.css";
 
 export const MenuItem = forwardRef((props, ref) => {
   const { bgImage, items, title } = props;
 
   return (
-    <div
-      className={cn('page', styles.container)}
-      data-density="soft"
-      ref={ref}
-    >
+    <div className={cn("page", styles.container)} data-density="soft" ref={ref}>
       <div className={styles.bg}>
-        <img className={styles.img} src={bg} alt="image"  />
+        <img className={styles.img} src={bg} alt="image" />
       </div>
       <div style={{ backgroundImage: bgImage }} className={styles.title}>
         <div className={styles.title_bg}>
@@ -27,7 +25,11 @@ export const MenuItem = forwardRef((props, ref) => {
       <div className={styles.dishes}>
         {items?.map((item, index) => (
           <div key={index} className={styles.description}>
-            <NavLink state={item} to={`/dish/${item.id}`} className={styles.dish_link}>
+            <NavLink
+              state={item}
+              to={`/dish/${item.id}`}
+              className={styles.dish_link}
+            >
               <span>{item.name}</span>
             </NavLink>
             <div className={styles.prices}>
@@ -37,6 +39,9 @@ export const MenuItem = forwardRef((props, ref) => {
           </div>
         ))}
       </div>
+      <a href="/" className={styles.linkOverlay}>
+        <FontAwesomeIcon icon={faHouse} style={{ color: "#363a3a" }} />
+      </a>
     </div>
-  )
+  );
 });

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import s from "../DishDetails/DishDetails.module.css";
+import style from "../DishDetails/DishDetails.module.css";
 
 const DishDetails = () => {
   const [dishData, setDishData] = useState(null);
@@ -18,21 +18,17 @@ const DishDetails = () => {
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.back}>
-        <button onClick={() => navigate(-1)} className={s.btn}>
+    <div className={style.container}>
+      <div className={style.back}>
+        <button onClick={() => navigate(-1)} className={style.btn}>
           Назад
         </button>
       </div>
       <h1>{dishData.name}</h1>
-      <div className={s.composition}>
-        <img
-          src={dishData.images[0].image}
-          alt={dishData.name}
-          className={s.dishImage}
-        />
-
-        <p>{dishData.composition}</p>
+      <div className={style.composition}>
+        <img src={dishData.picture} alt="" className={style.dishImage} />
+        <span>{dishData.weight} г.</span>
+        <span>{dishData.price} c.</span>
       </div>
     </div>
   );

@@ -12,10 +12,14 @@ const MainMenu = () => {
       </div>
       <div className={style.bar}>
         <NavLink to={"/BarMenu/"} className={style.navItem}>
-          <img src="/bar.png" alt="" className={style.image} />
+          <img src="/Group 19.svg" alt="" className={style.image} />
         </NavLink>
       </div>
-      <img src="/circle.png" alt="" className={style.circle} />
+      <div className={style.circleWrapper}>
+        <video autoPlay loop muted className={style.circle}>
+          <source src="/CircleVideo.MP4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 };

@@ -69,3 +69,14 @@
   justify-content: space-between;
   gap: 70px;
 }
+
+.linkOverlay {
+  text-decoration: none;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: xx-large;
+  background-color: transparent;
+  z-index: 2;
+  color: rgb(250, 247, 247);
+}
