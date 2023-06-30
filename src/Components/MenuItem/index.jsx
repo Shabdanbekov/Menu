@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import {NavLink} from "react-router-dom";
 import cn from 'classnames'
 
@@ -6,26 +6,15 @@ import bg from '../../assets/backgrounds/bg.png'
 
 import styles from './index.module.css'
 
-export const MenuItem = (props) => {
-  const { bgImage, items, title, isLeft, zIndex, isTherePagesOnRight, isTherePagesOnLeft } = props;
+export const MenuItem = forwardRef((props, ref) => {
+  const { bgImage, items, title } = props;
 
   return (
     <div
-      style={{ zIndex }}
-      className={cn(styles.container, {
-        [styles.is_left]: isLeft,
-      })}
+      className={cn('page', styles.container)}
+      data-density="soft"
+      ref={ref}
     >
-      <div
-        className={cn(styles.folding_right, {
-          [styles.show]: isTherePagesOnRight,
-        })}
-      />
-      <div
-        className={cn(styles.folding_left, {
-          [styles.show]: isTherePagesOnLeft,
-        })}
-      />
       <div className={styles.bg}>
         <img className={styles.img} src={bg} alt="image"  />
       </div>
@@ -50,4 +39,4 @@ export const MenuItem = (props) => {
       </div>
     </div>
   )
-}
+});

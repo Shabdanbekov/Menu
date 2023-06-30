@@ -1,33 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import { MenuItem } from "../MenuItem";
-
-import arrowLeft from '../../assets/icons/Arrow_Circle_Left.svg'
-import arrowRight from '../../assets/icons/Arrow_Circle_Right.svg'
 
 import styles from './DishMenu.module.css'
 import { getBackgroundColor } from "./utils.js";
+import HTMLFlipBook from "react-pageflip";
+import {useDimensions} from "../../utils/useDimension.js";
 
 const DishMenu = () => {
+  const ref = useRef(null);
+  const { width, height } = useDimensions()
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [leftPages, setLeftPages] = useState([]);
-  const [page, setPage] = useState(0);
 
-  const handleNextPage = () => {
-    if (page + 1 === menu.length) return
-    setLeftPages((prev) => [...prev, page]);
-    setPage((prev) => prev + 1)
-  }
+  const pages = useMemo(() => {
+    if (!menu.length) return [];
+    const result = []
+    let mainIndex = 1;
+    let menuIndex = 0;
+    const menuItems = Object.assign([], menu);
 
-  const handlePrevPage = () => {
-    if (page === 0) return
-    setLeftPages((prev) => {
-      const cache = [...prev];
-      cache.pop();
-      return cache;
-    })
-    setPage((prev) => prev - 1)
-  }
+    while (menuItems.length > 0) {
+        const item = menuItems.pop();
+        result.push(
+          <MenuItem
+            key={menuIndex}
+            id={item.id}
+            title={item.title}
+            bgImage={getBackgroundColor(menuIndex)}
+            items={item.dishes}
+          />
+        )
+        menuIndex++;
+
+      mainIndex++;
+    }
+    return result;
+  }, [menu]);
 
   useEffect(() => {
     const fetchDataMenuDishes = async () => {
@@ -64,25 +72,30 @@ const DishMenu = () => {
 
   return (
     <div className={styles.container}>
-      {menu.map((item, index) => (
-        <MenuItem
-          key={index}
-          id={item.id}
-          zIndex={menu.length - index}
-          title={item.title}
-          bgImage={getBackgroundColor(index)}
-          items={item.dishes}
-          isLeft={leftPages.includes(index)}
-          isTherePagesOnRight={menu.length - 1 > index}
-          isTherePagesOnLeft={index > 0}
-        />
-      ))}
-      {menu.length - 1 > page && (
-        <img className={styles.btn_next} onClick={handleNextPage} src={arrowRight} />
-      )}
-      {page > 0 && (
-        <img className={styles.btn_prev} onClick={handlePrevPage} src={arrowLeft} />
-      )}
+      <HTMLFlipBook
+        showCover={false}
+        useMouseEvents
+        usePortrait
+        showPageCorners
+        drawShadow
+        mobileScrollSupport
+        autoSize
+        width={width}
+        height={height}
+        minWidth={460}
+        minHeight={600}
+        maxHeight={1533}
+        maxWidth={40000}
+        maxShadowOpacity={0.5}
+        flippingTime={800}
+        clickEventForward
+        disableFlipByClick={false}
+        swipeDistance={100}
+        className={styles.html_flip}
+        ref={(el) => {ref.current = el}}
+      >
+        {pages}
+      </HTMLFlipBook>
     </div>
   );
 };
