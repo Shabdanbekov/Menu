@@ -7,12 +7,12 @@ const MainMenu = () => {
     <div className={style.container}>
       <div className={style.dish}>
         <NavLink to={"/DishMenu/"} className={style.navItem}>
-          <div className={style.text}></div>
+          <img src="/grill.png" alt="" className={style.image} />
         </NavLink>
       </div>
       <div className={style.bar}>
         <NavLink to={"/BarMenu/"} className={style.navItem}>
-          <div className={style.text}></div>
+          <img src="/bar.png" alt="" className={style.image} />
         </NavLink>
       </div>
       <img src="/circle.png" alt="" className={style.circle} />
