@@ -23,7 +23,7 @@ export const getBackgroundColor = (num) => {
 }
 
 export const getBottomLineColor = (num) => {
-  const bgs = [greenLine, roseLine, redLine, violetLine, yellowLine, purpleLine, null, blueLine];
+  const bgs = [greenLine, roseLine, redLine, violetLine, yellowLine, purpleLine, redLine, blueLine];
 
   if (!bgs[num]) return purpleLine;
   return bgs[num];
