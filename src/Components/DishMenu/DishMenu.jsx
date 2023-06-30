@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import { MenuItem } from "../MenuItem";
 
 import styles from './DishMenu.module.css'
-import { getBackgroundColor } from "./utils.js";
+import {getBackgroundColor, getBottomLineColor} from "./utils.js";
 import HTMLFlipBook from "react-pageflip";
 import {useDimensions} from "../../utils/useDimension.js";
 
@@ -27,6 +27,7 @@ const DishMenu = () => {
             id={item.id}
             title={item.title}
             bgImage={getBackgroundColor(menuIndex)}
+            lineImage={getBottomLineColor(menuIndex)}
             items={item.dishes}
           />
         )
@@ -90,7 +91,7 @@ const DishMenu = () => {
         flippingTime={800}
         clickEventForward
         disableFlipByClick={false}
-        swipeDistance={100}
+        swipeDistance={60}
         className={styles.html_flip}
         ref={(el) => {ref.current = el}}
       >

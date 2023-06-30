@@ -2,12 +2,10 @@ import React, {forwardRef} from 'react'
 import {NavLink} from "react-router-dom";
 import cn from 'classnames'
 
-import bg from '../../assets/backgrounds/bg.png'
-
 import styles from './index.module.css'
 
 export const MenuItem = forwardRef((props, ref) => {
-  const { bgImage, items, title } = props;
+  const { bgImage, items, title, lineImage } = props;
 
   return (
     <div
@@ -15,8 +13,8 @@ export const MenuItem = forwardRef((props, ref) => {
       data-density="soft"
       ref={ref}
     >
-      <div className={styles.bg}>
-        <img className={styles.img} src={bg} alt="image"  />
+      <div className={styles.line}>
+        <img className={styles.img} src={lineImage} alt="image"  />
       </div>
       <div style={{ backgroundImage: bgImage }} className={styles.title}>
         <div className={styles.title_bg}>
