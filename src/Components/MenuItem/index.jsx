@@ -1,6 +1,8 @@
-import React, {forwardRef} from 'react'
-import {NavLink} from "react-router-dom";
-import cn from 'classnames'
+import React, { forwardRef } from "react";
+import { NavLink } from "react-router-dom";
+import cn from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './index.module.css'
 
@@ -35,6 +37,9 @@ export const MenuItem = forwardRef((props, ref) => {
           </div>
         ))}
       </div>
+      <a href="/" className={styles.linkOverlay}>
+        <FontAwesomeIcon icon={faHouse} style={{ color: "#363a3a" }} />
+      </a>
     </div>
-  )
+  );
 });

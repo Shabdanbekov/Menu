@@ -1,25 +1,14 @@
 .container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.btn_next {
+.html_flip {
   position: absolute;
-  bottom: 80px;
-  right: 80px;
-  z-index: 100;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
+  top: 0;
 }
 
-.btn_prev {
-  position: absolute;
-  bottom: 80px;
-  left: 80px;
-  width: 50px;
-  height: 50px;
-  z-index: 100;
-  cursor: pointer;
+.page_back {
+  background-color: white;
 }

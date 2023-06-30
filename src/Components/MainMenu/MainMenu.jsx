@@ -7,13 +7,18 @@ const MainMenu = () => {
     <div className={style.container}>
       <div className={style.dish}>
         <NavLink to={"/DishMenu/"} className={style.navItem}>
-          <div className={style.text}>КУХНЯ</div>
+          <img src="/grill.png" alt="" className={style.image} />
         </NavLink>
       </div>
       <div className={style.bar}>
         <NavLink to={"/BarMenu/"} className={style.navItem}>
-          <div className={style.text}>БАР</div>
+          <img src="/Group 19.svg" alt="" className={style.image} />
         </NavLink>
+      </div>
+      <div className={style.circleWrapper}>
+        <video autoPlay loop muted className={style.circle}>
+          <source src="/CircleVideo.MP4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
