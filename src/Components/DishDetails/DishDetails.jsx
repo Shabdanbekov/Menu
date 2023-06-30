@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import style from "../DishDetails/DishDetails.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const DishDetails = () => {
   const [dishData, setDishData] = useState(null);
@@ -19,11 +21,11 @@ const DishDetails = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.back}>
-        <button onClick={() => navigate(-1)} className={style.btn}>
-          Назад
-        </button>
-      </div>
+      <FontAwesomeIcon
+        icon={faArrowLeft}
+        onClick={() => navigate(-1)}
+        className={style.icon}
+      />
       <h1>{dishData.name}</h1>
       <div className={style.composition}>
         <img src={dishData.picture} alt="" className={style.dishImage} />

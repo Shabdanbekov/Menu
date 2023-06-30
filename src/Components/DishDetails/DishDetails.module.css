@@ -1,6 +1,6 @@
 .container {
-  width: 1000px;
-  height: 700px auto;
+  width: 1280px;
+  height: 2337px auto;
   background-color: rgb(44, 42, 42);
   margin: auto;
 }
@@ -14,26 +14,20 @@
   margin-left: 80px;
   padding-bottom: 50px;
 }
-.btn {
-  text-decoration: none;
-  background-color: #ffe4c4;
-  border-radius: 8px;
-  color: black;
-  width: 60px;
-  height: 25px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.back {
-  padding-top: 10px;
-  padding-left: 85%;
-}
+
 .composition {
   display: flex;
   color: #ffe4c4;
   font-size: 40px;
+}
+
+.icon {
+  margin: 10px;
+  padding: 10px;
+  font-size: xx-large;
+  color: azure;
+}
+h1 {
+  color: #ffe4c4;
+  text-align: center;
 }

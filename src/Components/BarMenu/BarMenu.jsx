@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MenuItem } from "../MenuItem";
+import { MenuItem } from "../MenuItem/index";
 
 import styles from "./BarMenu.module.css";
 import { getBackgroundColor } from "./utils.js";
