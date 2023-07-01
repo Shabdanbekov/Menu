@@ -1,52 +1,28 @@
 .container {
   display: flex;
   height: 100vh;
-  position: relative;
-}
-
-.circleWrapper {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: none;
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.circle {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background-image: url("public/Frame42.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.dish {
+.leftSection,
+.rightSection {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
-.bar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(8, 8, 8);
-  overflow: hidden;
+.rightSection {
+  justify-content: flex-end;
 }
 
 .navItem {
-  text-decoration: none;
-  color: rgb(224, 7, 7);
+  width: 100%;
+  height: 100%;
 }
-
-.image {
-  width: 110vh;
-  height: 100vh;
-  object-fit: cover;
+.roundVideo {
+  border-radius: 100%;
+  max-width: 40%;
 }

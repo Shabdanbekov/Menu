@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import style from "../MainMenu/MainMenu.module.css";
 
 const MainMenu = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    videoRef.current.addEventListener("loadedmetadata", handleVideoLoaded);
+  }, []);
+
+  const handleVideoLoaded = () => {
+    videoRef.current.play();
+  };
+
   return (
     <div className={style.container}>
-      <div className={style.dish}>
-        <NavLink to={"/DishMenu/"} className={style.navItem}>
-          <img src="/grill.png" alt="" className={style.image} />
-        </NavLink>
+      <div className={style.leftSection}>
+        <NavLink to={"/BarMenu/"} className={style.navItem}></NavLink>
       </div>
-      <div className={style.bar}>
-        <NavLink to={"/BarMenu/"} className={style.navItem}>
-          <img src="/Group 19.svg" alt="" className={style.image} />
-        </NavLink>
-      </div>
-      <div className={style.circleWrapper}>
-        <video autoPlay loop muted className={style.circle}>
-          <source src="/CircleVideo.MP4" type="video/mp4" />
-        </video>
+      <video
+        ref={videoRef}
+        className={style.roundVideo}
+        src="/circle.mp4"
+        autoPlay
+        loop
+        muted
+      ></video>
+      <div className={style.rightSection}>
+        <NavLink to={"/DishMenu/"} className={style.navItem}></NavLink>
       </div>
     </div>
   );
