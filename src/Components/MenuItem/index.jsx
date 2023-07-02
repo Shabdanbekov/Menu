@@ -15,9 +15,6 @@ export const MenuItem = forwardRef((props, ref) => {
       data-density="soft"
       ref={ref}
     >
-      <div className={styles.line}>
-        <img className={styles.img} src={lineImage} alt="image"  />
-      </div>
       <div style={{ backgroundImage: bgImage }} className={styles.title}>
         <div className={styles.title_bg}>
           <img src={bgImage} className={styles.img} />
@@ -30,12 +27,13 @@ export const MenuItem = forwardRef((props, ref) => {
             <NavLink state={item} to={`/dish/${item.id}`} className={styles.dish_link}>
               <span>{item.name}</span>
             </NavLink>
-            <div className={styles.prices}>
-              <span>{item.weight} г.</span>
-              <span>{item.price} c.</span>
-            </div>
+            <span>{item.weight} г.</span>
+            <span>{item.price} c.</span>
           </div>
         ))}
+      </div>
+      <div className={styles.line}>
+        <img className={styles.img} src={lineImage} alt="image"  />
       </div>
       <a href="/" className={styles.linkOverlay}>
         <FontAwesomeIcon icon={faHouse} style={{ color: "#363a3a" }} />

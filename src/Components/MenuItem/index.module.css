@@ -1,6 +1,7 @@
 .container {
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+  height: max-content !important;
   font-family: sans-serif;
   font-size: 18px;
   position: relative;
@@ -39,14 +40,26 @@
 .dishes {
   display: flex;
   flex-direction: column;
-  padding: 40px;
   gap: 24px;
+  padding: 40px 40px 240px;
 }
 
 .description {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 32px;
+    height: 160px;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 3fr minmax(max-content, 1fr) minmax(max-content, 1fr);
+    font-size: 12px;
+    grid-gap: 20px;
+  }
 }
 
 .dish_link {
@@ -64,7 +77,7 @@
 
 .line {
   position: absolute;
-  height: 100px;
+  height: 90px;
   left: 0;
   bottom: 100px;
   right: 0;
