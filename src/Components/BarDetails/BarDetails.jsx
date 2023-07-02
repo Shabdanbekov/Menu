@@ -1,36 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import s from "../BarDetails/BarDetails.module.css";
+import style from "../BarDetails/BarDetails.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const BarDetails = () => {
-  const [barData, setBarData] = useState(null);
+  const [dishData, setDishData] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setBarData(location.state);
+    console.log(location.state);
+    setDishData(location.state);
     if (location.state.images) console.log(location.state.images);
   }, []);
 
-  if (!barData) {
+  if (!dishData) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.back}>
-        <button onClick={() => navigate(-1)} className={s.btn}>
-          Назад
-        </button>
-      </div>
-      <h1>{barData.name}</h1>
-      <div className={s.composition}>
-        <img
-          src={barData.images[0].image}
-          alt={barData.name}
-          className={s.dishImage}
-        />
-        <p>{barData.composition}</p>
+    <div className={style.container}>
+      <FontAwesomeIcon
+        icon={faArrowLeft}
+        onClick={() => navigate(-1)}
+        className={style.icon}
+      />
+      <h1>{dishData.name}</h1>
+      <div className={style.composition}>
+        <img src={dishData.picture} alt="" className={style.dishImage} />
+        <span>{dishData.weight} г.</span>
+        <span>{dishData.price} c.</span>
       </div>
     </div>
   );
