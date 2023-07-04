@@ -1,8 +1,8 @@
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  background-image: url("../../assets/backgrounds/Main_bg.png");
+  background-image: url("../../assets/backgrounds/Fr3.png");
   background-size: cover;
   background-position: center;
 }
@@ -22,10 +22,64 @@
   width: 100%;
   height: 100%;
 }
-.roundVideo {
-  /* border-radius: 100%;
-  width: 300px; */
-  border-radius: 100%;
-  height: 350px;
-  margin-top: 120px;
+
+.circle {
+  margin-top: 20vh;
+  position: relative;
+  width: 40vw;
+  height: 40vw;
+  animation: rotate 5s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotatingImage {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .circle {
+    width: 70vw;
+    height: 70vw;
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 80vw;
+    height: 80vw;
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .container {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 320px) {
+  .circle {
+    width: 90vw;
+    height: 90vw;
+    max-width: 200px;
+    max-height: 200px;
+  }
 }

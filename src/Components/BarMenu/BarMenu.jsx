@@ -42,10 +42,10 @@ const BarMenu = () => {
       try {
         setLoading(true);
         const dishesResponse = await fetch(
-          `http://3.65.63.138:8080/api/menupositions/`
+          `https://menu-api.soulist.kg/api/menupositions/`
         );
         const categoryResponse = await fetch(
-          `http://3.65.63.138:8080/api/menuitems/`
+          `https://menu-api.soulist.kg/api/menuitems/`
         );
         const dishes = await dishesResponse.json();
         const categories = await categoryResponse.json();

@@ -32,9 +32,9 @@ export const MenuItem = forwardRef((props, ref) => {
           </div>
         ))}
       </div>
-      <div className={styles.line}>
+      {/* <div className={styles.line}>
         <img className={styles.img} src={lineImage} alt="" />
-      </div>
+      </div> */}
       <a href="/" className={styles.linkOverlay}>
         <FontAwesomeIcon icon={faHouse} style={{ color: "#363a3a" }} />
       </a>

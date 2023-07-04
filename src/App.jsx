@@ -12,8 +12,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainMenu />} />
-        <Route path="/BarMenu/" element={<BarMenu />} />
-        <Route path="/DishMenu/" element={<DishMenu />} />
+        <Route path="/bar-menu/" element={<BarMenu />} />
+        <Route path="/dish-menu/" element={<DishMenu />} />
         <Route path="/dish/:id" element={<DishDetails />} />
         <Route path="/bar/:id" element={<BarDetails />} />
       </Routes>
