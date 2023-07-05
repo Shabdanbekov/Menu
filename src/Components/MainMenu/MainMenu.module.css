@@ -1,24 +1,47 @@
 .container {
-  display: flex;
   height: 100vh;
   width: 100%;
-  background-image: url("public/Frame42.png");
+  background-image: url("../../assets/backgrounds/main-bg.png");
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
-.leftSection,
-.rightSection {
-  flex: 1;
-  display: flex;
-  align-items: center;
+.bottle {
+  position: absolute;
+  left: 0;
+  height: 60vh;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+.plate {
+  position: absolute;
+  right: 0;
+  height: 60vh;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leftSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
+}
 .rightSection {
-  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
 }
 
 .navItem {
+  display: inline-block;
   width: 100%;
   height: 100%;
 }
