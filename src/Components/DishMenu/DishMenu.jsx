@@ -1,37 +1,37 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
 
-import styles from './DishMenu.module.css'
-import {getBackgroundColor, getBottomLineColor} from "./utils.js";
+import styles from "./DishMenu.module.css";
+import { getBackgroundColor, getBottomLineColor } from "./utils.js";
 import HTMLFlipBook from "react-pageflip";
-import {useDimensions} from "../../utils/useDimension.js";
+import { useDimensions } from "../../utils/useDimension.js";
 
 const DishMenu = () => {
   const ref = useRef(null);
-  const { width, height } = useDimensions()
+  const { width, height } = useDimensions();
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const pages = useMemo(() => {
     if (!menu.length) return [];
-    const result = []
+    const result = [];
     let mainIndex = 1;
     let menuIndex = 0;
     const menuItems = Object.assign([], menu);
 
     while (menuItems.length > 0) {
-        const item = menuItems.pop();
-        result.push(
-          <MenuItem
-            key={menuIndex}
-            id={item.id}
-            title={item.title}
-            bgImage={getBackgroundColor(menuIndex)}
-            lineImage={getBottomLineColor(menuIndex)}
-            items={item.dishes}
-          />
-        )
-        menuIndex++;
+      const item = menuItems.pop();
+      result.push(
+        <MenuItem
+          key={menuIndex}
+          id={item.id}
+          title={item.title}
+          bgImage={getBackgroundColor(menuIndex)}
+          lineImage={getBottomLineColor(menuIndex)}
+          items={item.dishes}
+        />
+      );
+      menuIndex++;
 
       mainIndex++;
     }
@@ -41,30 +41,38 @@ const DishMenu = () => {
   useEffect(() => {
     const fetchDataMenuDishes = async () => {
       try {
-        setLoading(true)
-        const dishesResponse = await fetch(`http://3.65.63.138:8080/api/menupositions/`);
-        const categoryResponse = await fetch(`http://3.65.63.138:8080/api/menuitems/`);
+        setLoading(true);
+        const dishesResponse = await fetch(
+          `https://menu-api.soulist.kg/api/menupositions/`
+        );
+        const categoryResponse = await fetch(
+          `https://menu-api.soulist.kg/api/menuitems/`
+        );
+        // `http://3.65.63.138:8080/api/menuitems/`
         const dishes = await dishesResponse.json();
         const categories = await categoryResponse.json();
 
-        const categoriesForDish = categories.filter((item) => item.category === 2);
+        const categoriesForDish = categories.filter(
+          (item) => item.category === 2
+        );
 
-        const formatDishes = categoriesForDish.map(item => {
-          const dishesOfCategory = dishes.filter(dish => dish.menu_item === item.id)
+        const formatDishes = categoriesForDish.map((item) => {
+          const dishesOfCategory = dishes.filter(
+            (dish) => dish.menu_item === item.id
+          );
 
-          return {...item, dishes: dishesOfCategory}
-        })
+          return { ...item, dishes: dishesOfCategory };
+        });
 
-        setMenu(formatDishes)
-        setLoading(false)
+        setMenu(formatDishes);
+        setLoading(false);
       } catch (e) {
-        console.log(e)
-        setLoading(false)
+        console.log(e);
+        setLoading(false);
       }
     };
 
     fetchDataMenuDishes();
-
   }, []);
 
   if (loading) {
@@ -93,7 +101,9 @@ const DishMenu = () => {
         disableFlipByClick={false}
         swipeDistance={60}
         className={styles.html_flip}
-        ref={(el) => {ref.current = el}}
+        ref={(el) => {
+          ref.current = el;
+        }}
       >
         {pages}
       </HTMLFlipBook>

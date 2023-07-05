@@ -11,14 +11,14 @@ const MainMenu = () => {
   return (
     <div className={style.container}>
       <div className={style.leftSection}>
-        <NavLink to={"/BarMenu/"} className={style.navItem}></NavLink>
+        <NavLink to={"/bar-menu/"} className={style.navItem}></NavLink>
       </div>
 
       <img src={bottle} className={style.bottle} alt="plate"/>
       <img src={plate} className={style.plate} alt="plate"/>
 
       <div className={style.rightSection}>
-        <NavLink to={"/DishMenu/"} className={style.navItem}></NavLink>
+        <NavLink to={"/dish-menu/"} className={style.navItem}></NavLink>
       </div>
     </div>
   );
