@@ -4,7 +4,7 @@ import { MenuItem } from "../MenuItem";
 import styles from "./BarMenu.module.css";
 import HTMLFlipBook from "react-pageflip";
 import { useDimensions } from "../../utils/useDimension.js";
-import barTitleBg from '../../assets/backgrounds/bar-title-bg.png'
+import barTitleBg from "../../assets/backgrounds/bar-title-bg.png";
 
 const BarMenu = () => {
   const ref = useRef(null);

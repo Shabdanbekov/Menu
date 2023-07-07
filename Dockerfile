@@ -1,8 +1,12 @@
-FROM node
+FROM node:lts
+
 WORKDIR /app
+
 COPY package.json .
-RUN npm i
+RUN npm install
+
 COPY . .
-## EXPOSE [Port you mentioned in the vite.config file]
+
 EXPOSE 8000
-CMD ["npm", "run", "dev"]
+
+CMD ["npm", "run" "start"]

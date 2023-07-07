@@ -1,14 +1,13 @@
-version: "3.4"
+version: "3.8"
+
 services:
-  vite_docker:
-    image: node:lts
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: menu-front
     ports:
       - 8000:8000
-    working_dir: /srv/app
-    entrypoint: ["npm", "run", "dev"]
     volumes:
-      - type: bind
-        source: ./
-        target: /srv/app
+      - .:/app
     tty: true
