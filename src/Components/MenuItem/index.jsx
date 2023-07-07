@@ -27,11 +27,10 @@ export const MenuItem = forwardRef((props, ref) => {
         </div>
       ))
     } else {
-      const result = []
-
       const subCategories = []
 
       for (let i = 0; i < items.length; i++) {
+        if (!items[i].menu_sub_item) continue;
         const foundCategory = subCategories.find((item) => item.id === items[i].menu_sub_item.id)
 
         if (!foundCategory) {
