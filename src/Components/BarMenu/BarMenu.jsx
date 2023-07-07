@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
 
 import styles from "./BarMenu.module.css";
-import { getBackgroundColor } from "./utils.js";
 import HTMLFlipBook from "react-pageflip";
 import { useDimensions } from "../../utils/useDimension.js";
+import barTitleBg from '../../assets/backgrounds/bar-title-bg.png'
 
 const BarMenu = () => {
   const ref = useRef(null);
@@ -26,7 +26,8 @@ const BarMenu = () => {
           key={menuIndex}
           id={item.id}
           title={item.title}
-          bgImage={getBackgroundColor(menuIndex)}
+          bgImageTitle={barTitleBg}
+          isBar
           items={item.dishes}
         />
       );
@@ -51,12 +52,12 @@ const BarMenu = () => {
         const categories = await categoryResponse.json();
 
         const categoriesForDish = categories.filter(
-          (item) => item.category === 1
+          (item) => item.category === 2
         );
 
         const formatDishes = categoriesForDish.map((item) => {
           const dishesOfCategory = dishes.filter(
-            (dish) => dish.menu_item === item.id
+            (dish) => dish.menu_item.id === item.id
           );
 
           return { ...item, dishes: dishesOfCategory };

@@ -3,8 +3,9 @@
   width: 100%;
   background-image: url("../../assets/backgrounds/main-bg.png");
   background-size: cover;
-  background-position: center;
+  background-position: -1px center;
   position: relative;
+  background-repeat: no-repeat;
 }
 
 .bottle {
@@ -21,6 +22,24 @@
   height: 60vh;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.container_circle {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: rotating 3s linear infinite;
+  -moz-animation: rotating 3s linear infinite;
+  -ms-animation: rotating 3s linear infinite;
+  -o-animation: rotating 3s linear infinite;
+  animation: rotating 3s linear infinite;
 }
 
 .leftSection {
@@ -48,4 +67,33 @@
 .roundVideo {
   border-radius: 100%;
   max-width: 40%;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

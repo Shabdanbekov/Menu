@@ -7,8 +7,14 @@
   position: relative;
   background-image: url("../../assets/backgrounds/bg.png");
   background-position: center;
-  background-size: 600px;
+  background-size: contain;
   background-repeat: repeat-y;
+}
+
+.container.bar {
+  background-image: url("../../assets/backgrounds/bl.png");
+  background-color: #222;
+  color: white;
 }
 
 .title {
@@ -21,6 +27,11 @@
   color: white;
   width: 100%;
   position: relative;
+}
+
+.sub_title {
+  font-size: 24px;
+  margin: 20px 0;
 }
 
 .title_bg {
@@ -66,6 +77,9 @@
   text-decoration: none;
   color: black;
   max-width: 400px;
+}
+.dish_link.bar {
+  color: white;
 }
 
 .prices {

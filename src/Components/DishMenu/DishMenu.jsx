@@ -26,7 +26,7 @@ const DishMenu = () => {
           key={menuIndex}
           id={item.id}
           title={item.title}
-          bgImage={getBackgroundColor(menuIndex)}
+          bgImageTitle={getBackgroundColor(menuIndex)}
           lineImage={getBottomLineColor(menuIndex)}
           items={item.dishes}
         />
@@ -53,12 +53,12 @@ const DishMenu = () => {
         const categories = await categoryResponse.json();
 
         const categoriesForDish = categories.filter(
-          (item) => item.category === 2
+          (item) => item.category === 1
         );
 
         const formatDishes = categoriesForDish.map((item) => {
           const dishesOfCategory = dishes.filter(
-            (dish) => dish.menu_item === item.id
+            (dish) => dish.menu_item.id === item.id
           );
 
           return { ...item, dishes: dishesOfCategory };
