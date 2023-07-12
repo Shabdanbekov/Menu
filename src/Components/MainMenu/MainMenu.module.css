@@ -71,6 +71,8 @@ body {
 .bg_img_title_wine {
   position: absolute;
   top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 32px;
   color: white;
 }
