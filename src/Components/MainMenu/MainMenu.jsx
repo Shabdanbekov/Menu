@@ -20,7 +20,6 @@ const MainMenu = () => {
 
   return (
     <div className={style.container}>
-        {/*<NavLink to={"/bar-menu/"} className={style.navItem}></NavLink>*/}
       <div
         className={cn(style.container_circle, {
           [style.done]: isLoaded,
@@ -53,7 +52,8 @@ const MainMenu = () => {
             <span className={style.bg_img_title}>МЕНЮ</span>
           </div>
         </NavLink>
-        <div
+        <NavLink
+          to="wine-card"
           className={cn(style.bg_imgs_wrap, {
             [style.right]: true,
             [style.done]: isLoaded,
@@ -65,7 +65,7 @@ const MainMenu = () => {
             <br />
             <span className={style.bg_img_title}>КАРТА</span>
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import BarMenu from "./Components/BarMenu/BarMenu";
 import DishDetails from "./Components/DishDetails/DishDetails";
 import BarDetails from "./Components/BarDetails/BarDetails";
 import DishMenu from "./Components/DishMenu/DishMenu.jsx";
+import WineCard from "./Components/WineCard/WineCard";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/bar-menu/" element={<BarMenu />} />
+        <Route path="/wine-card/" element={<WineCard />} />
         <Route path="/dish-menu/" element={<DishMenu />} />
         <Route path="/dish/:id" element={<DishDetails />} />
         <Route path="/bar/:id" element={<BarDetails />} />
+        <Route path="/wine/:id" element={<WineCard />} />
       </Routes>
     </>
   );
