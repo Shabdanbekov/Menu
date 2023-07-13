@@ -62,7 +62,6 @@ const MainMenu = () => {
           <img src={right} alt="blue" className={style.bg_img} />
           <div>
             <span className={style.bg_img_title_wine}>ВИННАЯ</span>
-            <br />
             <span className={style.bg_img_title}>КАРТА</span>
           </div>
         </NavLink>
