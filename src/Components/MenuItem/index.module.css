@@ -76,6 +76,7 @@
   text-decoration: none;
   color: black;
   max-width: 400px;
+  margin: 10px 0;
 }
 .dish_link.bar {
   color: white;

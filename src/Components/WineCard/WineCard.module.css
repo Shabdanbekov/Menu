@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.html_flip {
+  position: absolute;
+  top: 0;
+}
+
+.page_back {
+  background-color: white;
+}

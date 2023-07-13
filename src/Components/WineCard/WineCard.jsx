@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
-import { getBackgroundColor, getBottomLineColor } from "../DishMenu/utils";
 
-import styles from "./BarMenu.module.css";
+import styles from "./WineCard.module.css";
 import HTMLFlipBook from "react-pageflip";
 import { useDimensions } from "../../utils/useDimension.js";
+import barTitleBg from "../../assets/backgrounds/bar-title-bg.png";
 
-const BarMenu = () => {
+const WineCard = () => {
   const ref = useRef(null);
   const { width, height } = useDimensions();
   const [menu, setMenu] = useState([]);
@@ -15,7 +15,7 @@ const BarMenu = () => {
   const pages = useMemo(() => {
     if (!menu.length) return [];
     const result = [];
-    let mainIndex = 1;
+    // let mainIndex = 1;
     let menuIndex = 0;
     const menuItems = Object.assign([], menu);
 
@@ -26,14 +26,14 @@ const BarMenu = () => {
           key={menuIndex}
           id={item.id}
           title={item.title}
-          bgImageTitle={getBackgroundColor(menuIndex)}
-          lineImage={getBottomLineColor(menuIndex)}
+          bgImageTitle={barTitleBg}
+          isBar
           items={item.dishes}
         />
       );
       menuIndex++;
 
-      mainIndex++;
+      // mainIndex++;
     }
     return result;
   }, [menu]);
@@ -52,7 +52,7 @@ const BarMenu = () => {
         const categories = await categoryResponse.json();
 
         const categoriesForDish = categories.filter(
-          (item) => item.category === 2
+          (item) => item.category === 3
         );
 
         const formatDishes = categoriesForDish.map((item) => {
@@ -110,4 +110,4 @@ const BarMenu = () => {
   );
 };
 
-export default BarMenu;
+export default WineCard;
