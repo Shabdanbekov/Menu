@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
+import { getBackgroundColor, getBottomLineColor } from "../DishMenu/utils";
 
 import styles from "./BarMenu.module.css";
 import HTMLFlipBook from "react-pageflip";
 import { useDimensions } from "../../utils/useDimension.js";
-import barTitleBg from "../../assets/backgrounds/bar-title-bg.png";
 
 const BarMenu = () => {
   const ref = useRef(null);
@@ -26,8 +26,8 @@ const BarMenu = () => {
           key={menuIndex}
           id={item.id}
           title={item.title}
-          bgImageTitle={barTitleBg}
-          isBar
+          bgImageTitle={getBackgroundColor(menuIndex)}
+          lineImage={getBottomLineColor(menuIndex)}
           items={item.dishes}
         />
       );
