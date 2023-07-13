@@ -4,9 +4,6 @@
   background-color: black;
   overflow: hidden;
 }
-body {
-  overflow: hidden;
-}
 
 .container_circle {
   position: absolute;
