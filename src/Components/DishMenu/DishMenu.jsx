@@ -1,14 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MenuItem } from "../MenuItem";
+import React, { useEffect, useMemo, useState } from "react";
+import MenuItem from "../MenuItem";
 
 import styles from "./DishMenu.module.css";
 import { getBackgroundColor, getBottomLineColor } from "./utils.js";
-import HTMLFlipBook from "react-pageflip";
-import { useDimensions } from "../../utils/useDimension.js";
+import Slider from "react-slick";
 
 const DishMenu = () => {
-  const ref = useRef(null);
-  const { width, height } = useDimensions();
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -79,34 +76,43 @@ const DishMenu = () => {
     return <div>Loading...</div>;
   }
 
+  const settings = {
+    infinite: false,
+    speed: 900,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    autoplay: false,
+    responsive: [
+      {
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles.container}>
-      <HTMLFlipBook
-        showCover={false}
-        useMouseEvents
-        usePortrait
-        showPageCorners
-        drawShadow
-        mobileScrollSupport
-        autoSize
-        width={width}
-        height={height}
-        minWidth={460}
-        minHeight={600}
-        maxHeight={1533}
-        maxWidth={40000}
-        maxShadowOpacity={0.5}
-        flippingTime={800}
-        clickEventForward
-        disableFlipByClick={false}
-        swipeDistance={60}
-        className={styles.html_flip}
-        ref={(el) => {
-          ref.current = el;
-        }}
-      >
-        {pages}
-      </HTMLFlipBook>
+      <Slider {...settings}>{pages}</Slider>
     </div>
   );
 };

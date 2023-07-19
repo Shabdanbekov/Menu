@@ -6,7 +6,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./index.module.css";
 
-export const MenuItem = forwardRef((props, ref) => {
+const MenuItem = forwardRef((props, ref) => {
   const { bgImageTitle, isBar, items, title } = props;
 
   const itemsMemoized = useMemo(() => {
@@ -66,7 +66,7 @@ export const MenuItem = forwardRef((props, ref) => {
         );
 
         return (
-          <>
+          <div key={item.id}>
             <div className={styles.sub_title}>{item.title}</div>
             {filteredDishes.map((i, index) => (
               <div key={index} className={styles.description}>
@@ -83,7 +83,7 @@ export const MenuItem = forwardRef((props, ref) => {
                 <span>{i.price} c.</span>
               </div>
             ))}
-          </>
+          </div>
         );
       });
     }
@@ -97,9 +97,12 @@ export const MenuItem = forwardRef((props, ref) => {
       data-density="soft"
       ref={ref}
     >
-      <div style={{ backgroundImage: bgImageTitle }} className={styles.title}>
+      <div
+        style={{ backgroundImage: `url(${bgImageTitle})` }}
+        className={styles.title}
+      >
         <div className={styles.title_bg}>
-          <img src={bgImageTitle} className={styles.img} />
+          <img src={bgImageTitle} className={styles.img} alt="Background" />
         </div>
         <span>{title}</span>
       </div>
@@ -111,3 +114,5 @@ export const MenuItem = forwardRef((props, ref) => {
     </div>
   );
 });
+
+export default MenuItem;

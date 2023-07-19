@@ -1,21 +1,17 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MenuItem } from "../MenuItem";
-
+import React, { useEffect, useMemo, useState } from "react";
+import MenuItem from "../MenuItem";
 import styles from "./WineCard.module.css";
-import HTMLFlipBook from "react-pageflip";
-import { useDimensions } from "../../utils/useDimension.js";
 import barTitleBg from "../../assets/backgrounds/bar-title-bg.png";
+import Slider from "react-slick";
 
 const WineCard = () => {
-  const ref = useRef(null);
-  const { width, height } = useDimensions();
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const pages = useMemo(() => {
     if (!menu.length) return [];
     const result = [];
-    // let mainIndex = 1;
+    let mainIndex = 1;
     let menuIndex = 0;
     const menuItems = Object.assign([], menu);
 
@@ -33,7 +29,7 @@ const WineCard = () => {
       );
       menuIndex++;
 
-      // mainIndex++;
+      mainIndex++;
     }
     return result;
   }, [menu]);
@@ -78,34 +74,44 @@ const WineCard = () => {
     return <div>Loading...</div>;
   }
 
+  const settings = {
+    infinite: false,
+    speed: 900,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    autoplay: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles.container}>
-      <HTMLFlipBook
-        showCover={false}
-        useMouseEvents
-        usePortrait
-        showPageCorners
-        drawShadow
-        mobileScrollSupport
-        autoSize
-        width={width}
-        height={height}
-        minWidth={460}
-        minHeight={600}
-        maxHeight={1533}
-        maxWidth={40000}
-        maxShadowOpacity={0.5}
-        flippingTime={800}
-        clickEventForward
-        disableFlipByClick={false}
-        swipeDistance={100}
-        className={styles.html_flip}
-        ref={(el) => {
-          ref.current = el;
-        }}
-      >
-        {pages}
-      </HTMLFlipBook>
+      <Slider {...settings}>{pages}</Slider>
     </div>
   );
 };
