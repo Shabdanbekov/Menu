@@ -80,7 +80,7 @@ const BarMenu = () => {
 
   const settings = {
     infinite: false,
-    speed: 900,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     focusOnSelect: true,

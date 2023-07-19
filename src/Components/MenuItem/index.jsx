@@ -22,7 +22,7 @@ const MenuItem = forwardRef((props, ref) => {
           >
             <span>{item.name}</span>
           </NavLink>
-          <span>{item.weight} г.</span>
+          {/* <span>{item.weight} г.</span> */}
           <span>{item.price} c.</span>
         </div>
       ));
@@ -55,7 +55,7 @@ const MenuItem = forwardRef((props, ref) => {
             >
               <span>{item.name}</span>
             </NavLink>
-            <span>{item.weight} г.</span>
+            {/* <span>{item.weight} г.</span> */}
             <span>{item.price} c.</span>
           </div>
         ));
@@ -79,7 +79,7 @@ const MenuItem = forwardRef((props, ref) => {
                 >
                   <span>{i.name}</span>
                 </NavLink>
-                <span>{i.weight} г.</span>
+                {/* <span>{i.weight} г.</span> */}
                 <span>{i.price} c.</span>
               </div>
             ))}
