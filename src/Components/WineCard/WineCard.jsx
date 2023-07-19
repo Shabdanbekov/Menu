@@ -57,7 +57,7 @@ const WineCard = () => {
 
         const formatDishes = categoriesForDish.map((item) => {
           const dishesOfCategory = dishes.filter(
-            (dish) => dish.menu_item.id === item.id
+            (dish) => dish.menu_item?.id === item.id
           );
 
           return { ...item, dishes: dishesOfCategory };

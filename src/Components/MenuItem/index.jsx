@@ -62,7 +62,7 @@ export const MenuItem = forwardRef((props, ref) => {
 
       return subCategories.map((item) => {
         const filteredDishes = items.filter(
-          (i) => i.menu_sub_item.id === item.id
+          (i) => i.menu_sub_item?.id === item.id
         );
 
         return (
