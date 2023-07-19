@@ -53,7 +53,6 @@
   gap: 24px;
   padding: 40px 40px 240px;
 }
-
 .description {
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
@@ -107,4 +106,7 @@
   background-color: transparent;
   z-index: 2;
   color: rgb(250, 247, 247);
+}
+span {
+  margin-top: 10px;
 }
