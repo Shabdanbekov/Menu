@@ -13,15 +13,15 @@ const MenuItem = forwardRef((props, ref) => {
     if (!isBar) {
       return items?.map((item, index) => (
         <div key={index} className={styles.description}>
-          <NavLink
-            state={item}
-            to={`/dish/${item.id}`}
+          {/* <NavLink
+            // state={item}
+            // to={`/dish/${item.id}`}
             className={cn(styles.dish_link, {
               [styles.bar]: isBar,
             })}
           >
-            <span>{item.name}</span>
-          </NavLink>
+          </NavLink> */}
+          <span>{item.name}</span>
           <span>{item.weight}</span>
           <span>{item.price} c.</span>
         </div>
@@ -46,15 +46,15 @@ const MenuItem = forwardRef((props, ref) => {
       if (!subCategories.length)
         return items?.map((item, index) => (
           <div key={index} className={styles.description}>
-            <NavLink
+            {/* <NavLink
               state={item}
               to={`/dish/${item.id}`}
               className={cn(styles.dish_link, {
                 [styles.bar]: isBar,
               })}
             >
-              <span>{item.name}</span>
-            </NavLink>
+            </NavLink> */}
+            <span>{item.name}</span>
             <span>{item.weight} </span>
             <span>{item.price} c.</span>
           </div>
@@ -70,15 +70,15 @@ const MenuItem = forwardRef((props, ref) => {
             <div className={styles.sub_title}>{item.title}</div>
             {filteredDishes.map((i, index) => (
               <div key={index} className={styles.description}>
-                <NavLink
+                {/* <NavLink
                   state={i}
                   to={`/dish/${i.id}`}
                   className={cn(styles.dish_link, {
                     [styles.bar]: isBar,
                   })}
                 >
-                  <span>{i.name}</span>
-                </NavLink>
+                </NavLink> */}
+                <span>{i.name}</span>
                 <span>{i.weight} </span>
                 <span>{i.price} c.</span>
               </div>

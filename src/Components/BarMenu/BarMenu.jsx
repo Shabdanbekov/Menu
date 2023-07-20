@@ -3,7 +3,6 @@ import MenuItem from "../MenuItem";
 import { getBackgroundColor, getBottomLineColor } from "../DishMenu/utils";
 import styles from "./BarMenu.module.css";
 import Slider from "react-slick";
-import bgLine from "../../assets/backgrounds/bg.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
