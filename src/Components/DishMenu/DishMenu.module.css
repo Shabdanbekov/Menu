@@ -4,11 +4,31 @@
   min-height: 100vh;
 }
 
-.html_flip {
-  position: absolute;
-  top: 0;
+/* .page_back {
+  background-color: white;
+} */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.page_back {
-  background-color: white;
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: spin 1.2s linear infinite;
+}
+
+.loadingText {
+  margin-top: 10px;
 }

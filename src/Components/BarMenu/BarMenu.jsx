@@ -41,12 +41,11 @@ const BarMenu = () => {
     const fetchDataMenuDishes = async () => {
       try {
         setLoading(true);
-        const dishesResponse = await fetch(
-          `https://menu-api.soulist.kg/api/menupositions/`
-        );
-        const categoryResponse = await fetch(
-          `https://menu-api.soulist.kg/api/menuitems/`
-        );
+        const [dishesResponse, categoryResponse] = await Promise.all([
+          fetch(`https://menu-api.soulist.kg/api/menupositions/`),
+          fetch(`https://menu-api.soulist.kg/api/menuitems/`),
+        ]);
+
         const dishes = await dishesResponse.json();
         const categories = await categoryResponse.json();
 
@@ -74,7 +73,12 @@ const BarMenu = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.loadingContainer}>
+        <img src="/logo-soulist.png" alt="" className={styles.logo} />
+        <div className={styles.loadingText}>Подождите</div>
+      </div>
+    );
   }
 
   const settings = {
@@ -84,6 +88,7 @@ const BarMenu = () => {
     slidesToScroll: 1,
     focusOnSelect: true,
     autoplay: false,
+    lazyLoad: true,
   };
 
   return (
@@ -92,5 +97,4 @@ const BarMenu = () => {
     </div>
   );
 };
-
 export default BarMenu;
