@@ -10,6 +10,14 @@ const BarMenu = () => {
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const sortDishesByPrice = (dishes) => {
+    return dishes.sort((a, b) => {
+      const priceA = parseFloat(a.price.split("/")[0]);
+      const priceB = parseFloat(b.price.split("/")[0]);
+      return priceA - priceB;
+    });
+  };
+
   const pages = useMemo(() => {
     if (!menu.length) return [];
     const result = [];
@@ -18,6 +26,7 @@ const BarMenu = () => {
     const menuItems = Object.assign([], menu);
     while (menuItems.length > 0) {
       const item = menuItems.pop();
+      const sortedDishes = sortDishesByPrice(item.dishes);
       result.push(
         <MenuItem
           key={menuIndex}
@@ -25,7 +34,7 @@ const BarMenu = () => {
           title={item.title}
           bgImageTitle={getBackgroundColor(mainIndex)}
           lineImage={getBottomLineColor(menuIndex)}
-          items={item.dishes}
+          items={sortedDishes}
           isBar
         />
       );

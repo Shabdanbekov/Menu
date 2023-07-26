@@ -8,15 +8,24 @@ const WineCard = () => {
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const sortDishesByPrice = (dishes) => {
+    return dishes.sort((a, b) => {
+      const priceA = parseFloat(a.price.split("/")[0]);
+      const priceB = parseFloat(b.price.split("/")[0]);
+      return priceA - priceB;
+    });
+  };
+
   const pages = useMemo(() => {
     if (!menu.length) return [];
     const result = [];
-    let mainIndex = 1;
+    // let mainIndex = 1;
     let menuIndex = 0;
     const menuItems = Object.assign([], menu);
 
     while (menuItems.length > 0) {
       const item = menuItems.pop();
+      const sortedDishes = sortDishesByPrice(item.dishes);
       result.push(
         <MenuItem
           key={menuIndex}
@@ -24,12 +33,12 @@ const WineCard = () => {
           title={item.title}
           bgImageTitle={barTitleBg}
           isBar
-          items={item.dishes}
+          items={sortedDishes}
         />
       );
       menuIndex++;
 
-      mainIndex++;
+      // mainIndex++;
     }
     return result;
   }, [menu]);
@@ -38,12 +47,7 @@ const WineCard = () => {
     const fetchDataMenuDishes = async () => {
       try {
         setLoading(true);
-        // const dishesResponse = await fetch(
-        //   `https://menu-api.soulist.kg/api/menupositions/`
-        // );
-        // const categoryResponse = await fetch(
-        //   `https://menu-api.soulist.kg/api/menuitems/`
-        // );
+
         const [dishesResponse, categoryResponse] = await Promise.all([
           fetch(`https://menu-api.soulist.kg/api/menupositions/`),
           fetch(`https://menu-api.soulist.kg/api/menuitems/`),
