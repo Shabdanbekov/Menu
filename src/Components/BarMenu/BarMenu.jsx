@@ -85,7 +85,7 @@ const BarMenu = () => {
     return (
       <div className={styles.loadingContainer}>
         <img src="/logo-soulist.png" alt="" className={styles.logo} />
-        <div className={styles.loadingText}>Подождите</div>
+        <div className={styles.loadingText}></div>
       </div>
     );
   }

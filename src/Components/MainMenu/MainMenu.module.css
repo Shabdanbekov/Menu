@@ -67,7 +67,7 @@
 
 .bg_img_title_wine {
   position: absolute;
-  top: -32px;
+  top: -62px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 32px;
@@ -93,7 +93,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0 0 40px 0 #000000BF;
+  box-shadow: 0 0 40px 0 #000000bf;
 }
 
 .right {
