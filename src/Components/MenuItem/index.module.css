@@ -14,6 +14,7 @@
   background-image: url("../../assets/backgrounds/bl.png");
   background-color: #222;
   color: white;
+  min-height: 700vh;
 }
 
 .title {

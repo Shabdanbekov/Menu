@@ -4,10 +4,6 @@
   min-height: 100vh;
 }
 
-/* .page_back {
-  background-color: white;
-} */
-
 @keyframes spin {
   to {
     transform: rotate(360deg);

@@ -173,7 +173,6 @@ const DishMenu = () => {
           return { ...item, dishes: dishesOfCategory };
         });
 
-        // Apply the sorting logic here
         const targetIds = [18, 19];
         sortDataByIds(formatDishes, targetIds);
 
