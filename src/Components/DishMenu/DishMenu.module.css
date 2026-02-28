@@ -4,9 +4,9 @@
   min-height: 100vh;
 }
 
-/* .page_back {
+.page_back {
   background-color: white;
-} */
+}
 
 @keyframes spin {
   to {
