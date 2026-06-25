@@ -23,3 +23,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+api-output.log
+api-error.log
+react-output.log
+react-error.log
