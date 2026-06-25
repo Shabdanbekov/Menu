@@ -27,3 +27,9 @@ api-output.log
 api-error.log
 react-output.log
 react-error.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
